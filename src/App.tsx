@@ -1,6 +1,6 @@
-import React, { ReactHTMLElement, useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import styles from "~/app.module.scss";
+import React, { ReactHTMLElement, useEffect, useState } from 'react';
+import reactLogo from './assets/react.svg';
+import styles from '~/app.module.scss';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     void (async () => {
-      const poke = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+      const poke = await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
       if (poke.status === 200) {
         const body = (await poke.json()) as unknown;
         setPokemon(body);
@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.react}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -39,7 +39,7 @@ function App() {
                     src={pokemon && pokemon.sprites.front_shiny}
                     alt="ditto"
                   />
-                ) as ReactHTMLElement<HTMLImageElement>
+                ) as ReactHTMLElement<HTMLImageElement>,
               );
             }
             return dittos;
